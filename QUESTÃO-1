@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista Gerada</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Gerador de Lista</h1>
+        <input type="number" id="quantidade" placeholder="Digite a quantidade de itens">
+        <button onclick="gerarLista()">Gerar Lista</button>
+        <ul id="lista"></ul>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+-------------------------------------------------------------------------
+
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f4f4f4;
+}
+
+.container {
+    text-align: center;
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+input {
+    padding: 10px;
+    margin: 10px;
+    width: 200px;
+}
+
+button {
+    padding: 10px 20px;
+    cursor: pointer;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin-top: 20px;
+}
+
+ul li {
+    background-color: #eee;
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 5px;
+}
+------------------------------------------------------------------------------------
+function gerarLista() {
+    const quantidade = document.getElementById("quantidade").value;
+    const lista = document.getElementById("lista");
+
+    // Limpa a lista anterior
+    lista.innerHTML = "";
+
+    // Verifica se a quantidade é um número positivo
+    if (quantidade > 0) {
+        // Usa um laço de repetição para criar os itens
+        for (let i = 1; i <= quantidade; i++) {
+            let item = document.createElement("li");
+            item.textContent = `Simone Gama ${i}`;
+            lista.appendChild(item);
+        }
+    } else {
+        lista.innerHTML = "<li>Por favor, insira um número válido.</li>";
+    }
+}
